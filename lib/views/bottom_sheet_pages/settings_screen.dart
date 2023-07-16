@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,14 +15,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.black87,
+          // color: Colors.black87,
           child: const Column(
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 300),
                 child: Text(
-                  'Profile Page!',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  'Settings Page!',
+                  style: TextStyle(color: Colors.black, fontSize: 24),
                 ),
               ),
             ],

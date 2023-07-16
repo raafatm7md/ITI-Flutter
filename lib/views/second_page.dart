@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/bottom_sheet_pages/main_screen.dart';
-import 'package:untitled1/bottom_sheet_pages/profile_screen.dart';
+import 'package:untitled1/views/bottom_sheet_pages/settings_screen.dart';
+import 'bottom_sheet_pages/main_screen.dart';
+import 'bottom_sheet_pages/profile_screen.dart';
 
 class SecondPage extends StatefulWidget {
   @override
@@ -9,10 +10,7 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   int _currentIndex = 0;
-  final List<Widget> _pages = [
-    MainScreen(),
-    ProfileScreen(),
-  ];
+  final List<Widget> _pages = [MainScreen(), ProfileScreen(), SettingsScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +39,11 @@ class _SecondPageState extends State<SecondPage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Settings"),
         ],
+        unselectedItemColor: Colors.lightBlue[400],
+        selectedItemColor: Colors.blue[900],
       ),
     );
   }
