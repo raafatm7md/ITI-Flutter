@@ -21,22 +21,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          // color: Colors.black87,
+        child: Center(
           child: Column(
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 300),
                 child: Text(
                   'Welcome!',
-                  style: TextStyle(color: Colors.black, fontSize: 24),
+                  style: TextStyle(fontSize: 24),
                 ),
               ),
               Text(
                 userEmail,
-                style: const TextStyle(color: Colors.black, fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               )
             ],
           ),
@@ -47,5 +44,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   getUserEmail() async {
     userEmail = await getEmail();
-    setState(() {});}
+    setState(() {});
+  }
 }

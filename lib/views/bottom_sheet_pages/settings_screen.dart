@@ -10,23 +10,11 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          // color: Colors.black87,
-          child: const Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 300),
-                child: Text(
-                  'Settings Page!',
-                  style: TextStyle(color: Colors.black, fontSize: 24),
-                ),
-              ),
-            ],
-          ),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'Settings Page!',
+          style: TextStyle(fontSize: 24),
         ),
       ),
     );

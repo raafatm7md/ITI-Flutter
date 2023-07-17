@@ -10,7 +10,11 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   int _currentIndex = 0;
-  final List<Widget> _pages = [MainScreen(), ProfileScreen(), SettingsScreen()];
+  final List<Widget> _pages = [
+    const MainScreen(),
+    const ProfileScreen(),
+    const SettingsScreen()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
