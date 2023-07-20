@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled1/views/tasks/tasks_cubit.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class TasksScreen extends StatefulWidget {
+  const TasksScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<TasksScreen> createState() => _TasksScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _TasksScreenState extends State<TasksScreen> {
 
   @override
   Widget build(BuildContext context) {

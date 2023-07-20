@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:untitled1/views/second_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -11,7 +14,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  late final TextEditingController emailController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +46,11 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                    label: Text('Email'),
-                    labelStyle: TextStyle(
-                      color: Colors.lightBlue,
+                    label: Row(
+                      children: [
+                        Icon(Icons.alternate_email, color: Colors.lightBlue),
+                        Text(' Email', style: TextStyle(color: Colors.lightBlue)),
+                      ],
                     ),
                   ),
                 ),
@@ -60,9 +67,11 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                    label: Text('Password'),
-                    labelStyle: TextStyle(
-                      color: Colors.lightBlue,
+                    label: Row(
+                      children: [
+                        Icon(Icons.lock, color: Colors.lightBlue),
+                        Text(' Password', style: TextStyle(color: Colors.lightBlue)),
+                      ],
                     ),
                   ),
                 ),
@@ -70,13 +79,23 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                   padding: const EdgeInsets.only(left: 30, top: 50, right: 30),
                   child: MaterialButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        saveEmail(emailController.text);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SecondPage()),
-                        );
+                        bool login = await signingIn(emailController.text, passwordController.text);
+                        if (login){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SecondPage()),
+                          );
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Invalid data"))
+                          );
+                        }
+                      }
+                      else{
+                        emailController.clear();
                       }
                     },
                     color: Colors.lightBlue,
@@ -116,5 +135,24 @@ class _LoginPageState extends State<LoginPage> {
   saveEmail(String email) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('email', email);
+  }
+  Future<bool> signingIn(String email, String password) async{
+    bool result = false;
+    try{
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password
+      );
+      final user = userCredential.user;
+      if (user!=null){
+        print(user.uid);
+        saveEmail(user.email!);
+        result = true;
+      }
+      return result;
+    }
+    catch (error){
+      return result;
+    }
   }
 }
