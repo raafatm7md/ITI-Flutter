@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:untitled1/views/second_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';

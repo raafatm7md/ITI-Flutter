@@ -22,20 +22,28 @@ class _ToDoScreenState extends State<ToDoScreen> {
           }
 
           if (snapshot.hasData == false && snapshot.data == null) {
-            return Text("Loading ...");
+            return const Center(child: CircularProgressIndicator(color: Colors.lightBlue));
           }
           print(snapshot.connectionState.toString());
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (BuildContext context, int index) {
-                return Text(
-                  "${snapshot.data!.docs[index]['name']} ${snapshot.data!.docs[index]['description']}",
+                return ListTile(
+                  leading: Text(
+                    "${snapshot.data!.docs[index]['name']}",
+                  ),
+                    title: Padding(
+                      padding: const EdgeInsets.only(left: 110),
+                      child: Text(
+                        "${snapshot.data!.docs[index]['description']}",
+                      ),
+                    )
                 );
               },
             );
           }
-          return Text("loading");
+          return const Center(child: CircularProgressIndicator(color: Colors.lightBlue));
         },
       ),
     );

@@ -19,7 +19,7 @@ class _TasksScreenState extends State<TasksScreen> {
         builder: (context, state) {
           if (state is TasksLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: Colors.lightBlue),
             );
           } else if (state is TasksSuccess) {
             return ListView.builder(
