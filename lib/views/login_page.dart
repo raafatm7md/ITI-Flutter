@@ -14,11 +14,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(text: "raafat@gmail.com");
+  final TextEditingController passwordController = TextEditingController(text: "12345678");
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: SingleChildScrollView(
@@ -65,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },
                   obscureText: true,
+                  controller: passwordController,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     label: Row(
@@ -90,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         }
                         else{
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Invalid data"))
+                              const SnackBar(content: Text("Wrong email or password"))
                           );
                         }
                       }

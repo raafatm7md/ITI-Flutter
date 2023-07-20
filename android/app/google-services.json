@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "49134720288",
-    "project_id": "iti-flutter-training",
-    "storage_bucket": "iti-flutter-training.appspot.com"
+    "project_number": "563303788373",
+    "project_id": "iti-training-dbf4e",
+    "storage_bucket": "iti-training-dbf4e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:49134720288:android:e02e24bbd9537b10ec3345",
+        "mobilesdk_app_id": "1:563303788373:android:47a09bf2416c91d32949dc",
         "android_client_info": {
           "package_name": "com.example.untitled1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "49134720288-vk65btaoelm2qu1m8bjfrpa1mum9i7no.apps.googleusercontent.com",
+          "client_id": "563303788373-ondcgskh3jg6fseim3tsrgo6s1o74td5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDfOQKvzQwyjTyx6Xv2AUuaCDDYey1We3w"
+          "current_key": "AIzaSyBMYYCqvD7NYnPsGM7Y8eM6hbhhjR-n_jc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "49134720288-vk65btaoelm2qu1m8bjfrpa1mum9i7no.apps.googleusercontent.com",
+              "client_id": "563303788373-ondcgskh3jg6fseim3tsrgo6s1o74td5.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "49134720288-nokbhchmgp7r2jp4env5ncp9aalsv714.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.untitled1"
-              }
             }
           ]
         }
